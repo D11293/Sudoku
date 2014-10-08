@@ -1,0 +1,1213 @@
+<!--
+Author Denis Gerber
+Date 29.09.14
+Description GAME SUDOKU 
+Problème: Je n'arrive toujours pas à remplir 
+		  les lignes et colonnes du sudoku avec des nombres aléatoires uniques
+-->
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="bootstrap-3.2.0\dist\css\bootstrap.css">
+<html>
+<body class="Body" onKeyPress="if (event.keyCode == 13) test()" >
+<div class="container">
+<div class="modal-body">
+<div class="row-fluid">
+<div class="banniere">
+<h1>
+
+<span class="pull-left"> 㹭</span> SUDOKU <span class="pull-right">䱵 </span>
+</h1></div></div></div></div>
+
+<div class="container">
+<div class="modal-body">
+<div class="row-fluid">
+<div class="text">
+</br>
+<!--Table avec les cases-->
+<table class="Table">
+	<form class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+		<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+	<td class="point_noir"></td>
+	<td colspan="3" class="grand_trait_brun2"></td>
+	<td class="point_noir"></td>
+	<td colspan="3" class="grand_trait_brun2"></td>
+	<td class="point_noir"></td>
+	<td colspan="3" class="grand_trait_brun2"></td>
+	<td class="point_noir"></td>
+	</tr>
+	<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case1" maxlength="1"></textarea></td>
+	<td><textarea id="Case2" maxlength="1"></textarea></td>
+	<td><textarea id="Case3" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case4" maxlength="1"></textarea></td>
+	<td><textarea id="Case5" maxlength="1"></textarea></td>
+	<td><textarea id="Case6" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case7" maxlength="1"></textarea></td>
+	<td><textarea id="Case8" maxlength="1"></textarea></td>
+	<td><textarea id="Case9" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	</tr>
+	<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case10" maxlength="1"></textarea></td>
+	<td><textarea id="Case11" maxlength="1"></textarea></td>
+	<td><textarea id="Case12" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case13" maxlength="1"></textarea></td>
+	<td><textarea id="Case14" maxlength="1"></textarea></td>
+	<td><textarea id="Case15" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case16" maxlength="1"></textarea></td>
+	<td><textarea id="Case17" maxlength="1"></textarea></td>
+	<td><textarea id="Case18" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	</tr>
+	<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case19" maxlength="1"></textarea></td>
+	<td><textarea id="Case20" maxlength="1"></textarea></td>
+	<td><textarea id="Case21" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case22" maxlength="1"></textarea></td>
+	<td><textarea id="Case23" maxlength="1"></textarea></td>
+	<td><textarea id="Case24" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case25" maxlength="1"></textarea></td>
+	<td><textarea id="Case26" maxlength="1"></textarea></td>
+	<td><textarea id="Case27" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	</tr>
+	<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+	<td class="point_noir"></td>
+	<td colspan="3" class="grand_trait_brun2"></td>
+	<td class="point_noir"></td>
+	<td colspan="3" class="grand_trait_brun2"></td>
+	<td class="point_noir"></td>
+	<td colspan="3" class="grand_trait_brun2"></td>
+	<td class="point_noir"></td>
+	</tr>
+	<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case28" maxlength="1"></textarea></td>
+	<td><textarea id="Case29" maxlength="1"></textarea></td>
+	<td><textarea id="Case30" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case31" maxlength="1"></textarea></td>
+	<td><textarea id="Case32" maxlength="1"></textarea></td>
+	<td><textarea id="Case33" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case34" maxlength="1"></textarea></td>
+	<td><textarea id="Case35" maxlength="1"></textarea></td>
+	<td><textarea id="Case36" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	</tr>
+	<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case37" maxlength="1"></textarea></td>
+	<td><textarea id="Case38" maxlength="1"></textarea></td>
+	<td><textarea id="Case39" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case40" maxlength="1"></textarea></td>
+	<td><textarea id="Case41" maxlength="1"></textarea></td>
+	<td><textarea id="Case42" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case43" maxlength="1"></textarea></td>
+	<td><textarea id="Case44" maxlength="1"></textarea></td>
+	<td><textarea id="Case45" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	</tr>
+	<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case46" maxlength="1"></textarea></td>
+	<td><textarea id="Case47" maxlength="1"></textarea></td>
+	<td><textarea id="Case48" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case49" maxlength="1"></textarea></td>
+	<td><textarea id="Case50" maxlength="1"></textarea></td>
+	<td><textarea id="Case51" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case52" maxlength="1"></textarea></td>
+	<td><textarea id="Case53" maxlength="1"></textarea></td>
+	<td><textarea id="Case54" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	</tr>
+	<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+	<td class="point_noir"></td>
+	<td colspan="3" class="grand_trait_brun2"></td>
+	<td class="point_noir"></td>
+	<td colspan="3" class="grand_trait_brun2"></td>
+	<td class="point_noir"></td>
+	<td colspan="3" class="grand_trait_brun2"></td>
+	<td class="point_noir"></td>
+	</tr>
+		<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+		<td class="grand_trait_brun"></td>
+	<td><textarea id="Case55" maxlength="1"></textarea></td>
+	<td><textarea id="Case56" maxlength="1"></textarea></td>
+	<td><textarea id="Case57" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case58" maxlength="1"></textarea></td>
+	<td><textarea id="Case59" maxlength="1"></textarea></td>
+	<td><textarea id="Case60" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case61" maxlength="1"></textarea></td>
+	<td><textarea id="Case62" maxlength="1"></textarea></td>
+	<td><textarea id="Case63" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	</tr>
+	<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case64" maxlength="1"></textarea></td>
+	<td><textarea id="Case65" maxlength="1"></textarea></td>
+	<td><textarea id="Case66" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case67" maxlength="1"></textarea></td>
+	<td><textarea id="Case68" maxlength="1"></textarea></td>
+	<td><textarea id="Case69" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case70" maxlength="1"></textarea></td>
+	<td><textarea id="Case71" maxlength="1"></textarea></td>
+	<td><textarea id="Case72" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	</tr>
+	<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case73" maxlength="1"></textarea></td>
+	<td><textarea id="Case74" maxlength="1"></textarea></td>
+	<td><textarea id="Case75" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case76" maxlength="1"></textarea></td>
+	<td><textarea id="Case77" maxlength="1"></textarea></td>
+	<td><textarea id="Case78" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	<td><textarea id="Case79" maxlength="1"></textarea></td>
+	<td><textarea id="Case80" maxlength="1"></textarea></td>
+	<td><textarea id="Case81" maxlength="1"></textarea></td>
+	<td class="grand_trait_brun"></td>
+	</tr>
+		<tr class="col-xs-12" class="col-sm-3" class="col-md-4" class="table-responsive">
+	<td class="point_noir"></td>
+	<td colspan="3" class="grand_trait_brun2"></td>
+	<td class="point_noir"></td>
+	<td colspan="3" class="grand_trait_brun2"></td>
+	<td class="point_noir"></td>
+	<td colspan="3" class="grand_trait_brun2"></td>
+	<td class="point_noir"></td>
+	</tr>
+	</form>
+</table>
+</br>
+<!--C'est partit pour un peu de JS-->
+<script>
+// Déclaration des 107 variables
+var C1=Math.floor((9)*Math.random()+1);
+var C2=Math.floor((9)*Math.random()+1);
+var C3=Math.floor((9)*Math.random()+1);
+var C4=Math.floor((9)*Math.random()+1);
+var C5=Math.floor((9)*Math.random()+1);
+var C6=Math.floor((9)*Math.random()+1);
+var C7=Math.floor((9)*Math.random()+1);
+var C8=Math.floor((9)*Math.random()+1);
+var C9=Math.floor((9)*Math.random()+1);
+var C10=Math.floor((9)*Math.random()+1);
+var C11=Math.floor((9)*Math.random()+1);
+var C12=Math.floor((9)*Math.random()+1);
+var C13=Math.floor((9)*Math.random()+1);
+var C14=Math.floor((9)*Math.random()+1);
+var C15=Math.floor((9)*Math.random()+1);
+var C16=Math.floor((9)*Math.random()+1);
+var C17=Math.floor((9)*Math.random()+1);
+var C18=Math.floor((9)*Math.random()+1);
+var C19=Math.floor((9)*Math.random()+1);
+var C20=Math.floor((9)*Math.random()+1);
+var C21=Math.floor((9)*Math.random()+1);
+var C22=Math.floor((9)*Math.random()+1);
+var C23=Math.floor((9)*Math.random()+1);
+var C24=Math.floor((9)*Math.random()+1);
+var C25=Math.floor((9)*Math.random()+1);
+var C26=Math.floor((9)*Math.random()+1);
+var C27=Math.floor((9)*Math.random()+1);
+var C28=Math.floor((9)*Math.random()+1);
+var C29=Math.floor((9)*Math.random()+1);
+var C30=Math.floor((9)*Math.random()+1);
+var C31=Math.floor((9)*Math.random()+1);
+var C32=Math.floor((9)*Math.random()+1);
+var C33=Math.floor((9)*Math.random()+1);
+var C34=Math.floor((9)*Math.random()+1);
+var C35=Math.floor((9)*Math.random()+1);
+var C36=Math.floor((9)*Math.random()+1);
+var C37=Math.floor((9)*Math.random()+1);
+var C38=Math.floor((9)*Math.random()+1);
+var C39=Math.floor((9)*Math.random()+1);
+var C40=Math.floor((9)*Math.random()+1);
+var C41=Math.floor((9)*Math.random()+1);
+var C42=Math.floor((9)*Math.random()+1);
+var C43=Math.floor((9)*Math.random()+1);
+var C44=Math.floor((9)*Math.random()+1);
+var C45=Math.floor((9)*Math.random()+1);
+var C46=Math.floor((9)*Math.random()+1);
+var C47=Math.floor((9)*Math.random()+1);
+var C48=Math.floor((9)*Math.random()+1);
+var C49=Math.floor((9)*Math.random()+1);
+var C50=Math.floor((9)*Math.random()+1);
+var C51=Math.floor((9)*Math.random()+1);
+var C52=Math.floor((9)*Math.random()+1);
+var C53=Math.floor((9)*Math.random()+1);
+var C54=Math.floor((9)*Math.random()+1);
+var C55=Math.floor((9)*Math.random()+1);
+var C56=Math.floor((9)*Math.random()+1);
+var C57=Math.floor((9)*Math.random()+1);
+var C58=Math.floor((9)*Math.random()+1);
+var C59=Math.floor((9)*Math.random()+1);
+var C60=Math.floor((9)*Math.random()+1);
+var C61=Math.floor((9)*Math.random()+1);
+var C62=Math.floor((9)*Math.random()+1);
+var C63=Math.floor((9)*Math.random()+1);
+var C64=Math.floor((9)*Math.random()+1);
+var C65=Math.floor((9)*Math.random()+1);
+var C66=Math.floor((9)*Math.random()+1);
+var C67=Math.floor((9)*Math.random()+1);
+var C68=Math.floor((9)*Math.random()+1);
+var C69=Math.floor((9)*Math.random()+1);
+var C70=Math.floor((9)*Math.random()+1);
+var C71=Math.floor((9)*Math.random()+1);
+var C72=Math.floor((9)*Math.random()+1);
+var C73=Math.floor((9)*Math.random()+1);
+var C74=Math.floor((9)*Math.random()+1);
+var C75=Math.floor((9)*Math.random()+1);
+var C76=Math.floor((9)*Math.random()+1);
+var C77=Math.floor((9)*Math.random()+1);
+var C78=Math.floor((9)*Math.random()+1);
+var C79=Math.floor((9)*Math.random()+1);
+var C80=Math.floor((9)*Math.random()+1);
+var C81=Math.floor((9)*Math.random()+1);
+var Carre1=C1+C2+C3+C10+C11+C12+C19+C20+C21;
+var Carre2=C4+C5+C6+C13+C14+C15+C22+C23+C24;
+var Carre3=C7+C8+C9+C16+C17+C18+C25+C26+C27;
+var Carre4=C28+C29+C30+C37+C38+C39+C46+C47+C48;
+var Carre5=C31+C32+C33+C40+C41+C42+C49+C50+C51;
+var Carre6=C34+C35+C36+C43+C44+C45+C52+C53+C54;
+var Carre7=C55+C56+C57+C64+C65+C66+C73+C74+C75;
+var Carre8=C58+C59+C60+C67+C68+C69+C76+C77+C78;
+var Carre9=C61+C62+C63+C70+C71+C72+C79+C80+C81;
+var Ligne1=C1+C2+C3+C4+C5+C6+C7+C8+C9;
+var Ligne2=C10+C11+C12+C13+C14+C15+C16+C17+C18;
+var Ligne3=C19+C20+C21+C22+C23+C24+C25+C26+C27;
+var Ligne4=C28+C29+C30+C31+C32+C33+C34+C35+C36;
+var Ligne5=C37+C38+C39+C40+C41+C42+C43+C44+C45;
+var Ligne6=C46+C47+C48+C49+C50+C51+C52+C53+C54;
+var Ligne7=C55+C56+C57+C58+C59+C60+C61+C62+C63;
+var Ligne8=C64+C65+C66+C67+C68+C69+C70+C71+C72;
+var Ligne9=C73+C74+C75+C76+C77+C78+C79+C80+C81;
+var Colonne1=C1+C4+C7+C28+C31+C34+C55+C58+C61;
+var Colonne2=C2+C5+C8+C29+C32+C35+C56+C59+C62;
+var Colonne3=C3+C6+C9+C30+C33+C36+C57+C60+C63;
+var Colonne4=C10+C13+C16+C37+C40+C43+C64+C67+C70;
+var Colonne5=C11+C14+C17+C38+C41+C44+C65+C68+C71;
+var Colonne6=C12+C15+C18+C39+C42+C45+C66+C69+C72;
+var Colonne7=C19+C22+C25+C46+C49+C52+C73+C76+C79;
+var Colonne8=C20+C23+C26+C47+C50+C53+C74+C77+C80;
+var Colonne9=C21+C24+C27+C48+C51+C54+C75+C78+C81;
+// Vérification du Sudoku, si on a bien un total de 45 de chaque côtés
+//en horizontal
+do{
+		    Ligne1 = 45;
+			Ligne1=Ligne1-C1;
+
+		if(C2!=C1){
+			Ligne1=Ligne1-C2;
+		}
+		else{
+			C2=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C3!=C1 && C3!=C2){
+			Ligne1=Ligne1-C3;
+		}
+		else{
+			C3=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C4!=C1 && C4!=C2 && C4!=C3){
+			Ligne1=Ligne1-C4;
+		}
+		else{
+			C4=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C5!=C1 && C5!=C2 && C5!=C3 && C5!=C4){
+			Ligne1=Ligne1-C5;
+		}
+		else{
+			C5=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C6!=C1 && C6!=C2 && C6!=C3 && C6!=C4 && C6!=C5){
+			Ligne1=Ligne1-C6;
+		}
+		else{
+			C6=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C7!=C1 && C7!=C2 && C7!=C3 && C7!=C4 && C7!=C5 && C7!=C6){
+			Ligne1=Ligne1-C7;
+		}
+		else{
+			C7=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C8!=C1 && C8!=C2 && C8!=C3 && C8!=C4 && C8!=C5 && C8!=C6 && C8!=C7){
+			Ligne1=Ligne1-C8;
+		}
+		else{
+			C8=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C9!=C1 && C9!=C2 && C9!=C3 && C9!=C4 && C9!=C5 && C9!=C6 && C9!=C7 && C9!=C8){
+			Ligne1=Ligne1-C9;
+		}
+		else{
+			C9=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Ligne1!=0);
+
+do{
+		    Ligne2 = 45;
+			Ligne2=Ligne2-C10;
+
+		if(C11!=C10){
+			Ligne2=Ligne2-C11;
+		}
+		else{
+			C11=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C12!=C10 && C12!=C11){
+			Ligne2=Ligne2-C12;
+		}
+		else{
+			C12=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C13!=C10 && C13!=C11 && C13!=C12){
+			Ligne2=Ligne2-C13;
+		}
+		else{
+			C13=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C14!=C10 && C14!=C11 && C14!=C12 && C14!=C13){
+			Ligne2=Ligne2-C14;
+		}
+		else{
+			C14=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C15!=C10 && C15!=C11 && C15!=C12 && C15!=C13 && C15!=C14){
+			Ligne2=Ligne2-C15;
+		}
+		else{
+			C15=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C16!=C10 && C16!=C11 && C16!=C12 && C16!=C13 && C16!=C14 && C16!=C15){
+			Ligne2=Ligne2-C16;
+		}
+		else{
+			C16=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C17!=C10 && C17!=C11 && C17!=C12 && C17!=C13 && C17!=C14 && C17!=C15 && C17!=C16){
+			Ligne2=Ligne2-C17;
+		}
+		else{
+			C17=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C18!=C10 && C18!=C11 && C18!=C12 && C18!=C13 && C18!=C14 && C18!=C15 && C18!=C16 && C18!=C17){
+			Ligne2=Ligne2-C18;
+		}
+		else{
+			C18=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Ligne2!=0);
+
+do{
+		    Ligne3 = 45;
+			Ligne3=Ligne3-C19;
+
+		if(C20!=C19){
+			Ligne3=Ligne3-C20;
+		}
+		else{
+			C20=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C21!=C19 && C21!=C20){
+			Ligne3=Ligne3-C21;
+		}
+		else{
+		    C21=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C22!=C19 && C22!=C20 && C22!=C21){
+			Ligne3=Ligne3-C22;
+		}
+		else{
+			C22=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C23!=C19 && C23!=C20 && C23!=C21 && C23!=C22){
+			Ligne3=Ligne3-C23;
+		}
+		else{
+			C23=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C24!=C19 && C24!=C20 && C24!=C21 && C24!=C22 && C24!=C23){
+			Ligne3=Ligne3-C24;
+		}
+		else{
+			C24=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C25!=C19 && C25!=C20 && C25!=C21 && C25!=C22 && C25!=C23 && C25!=C24){
+			Ligne3=Ligne3-C25;
+		}
+		else{
+			C25=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C26!=C19 && C26!=C20 && C26!=C21 && C26!=C22 && C26!=C23 && C26!=C24 && C26!=C25){
+			Ligne3=Ligne3-C26;
+		}
+		else{
+			C26=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C27!=C19 && C27!=C20 && C27!=C21 && C27!=C22 && C27!=C23 && C27!=C24 && C27!=C25 && C27!=C26){
+			Ligne3=Ligne3-C27;
+		}
+		else{
+			C27=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Ligne3!=0);
+
+do{
+		    Ligne4 = 45;
+			Ligne4=Ligne4-C28;
+
+		if(C29!=C28){
+			Ligne4=Ligne4-C29;
+		}
+		else{
+			C29=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C30!=C28 && C30!=C29){
+			Ligne4=Ligne4-C30;
+		}
+		else{
+		    C30=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C31!=C28 && C31!=C29 && C31!=C30){
+			Ligne4=Ligne4-C31;
+		}
+		else{
+			C31=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C32!=C28 && C32!=C29 && C32!=C30 && C32!=C31){
+			Ligne4=Ligne4-C32;
+		}
+		else{
+			C32=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C33!=C28 && C33!=C29 && C33!=C30 && C33!=C31 && C33!=C32){
+			Ligne4=Ligne4-C33;
+		}
+		else{
+			C33=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C34!=C28 && C34!=C29 && C34!=C30 && C34!=C31 && C34!=C32 && C34!=C33){
+			Ligne4=Ligne4-C34;
+		}
+		else{
+			C34=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C35!=C28 && C35!=C29 && C35!=C30 && C35!=C31 && C35!=C32 && C35!=C33 && C35!=C34){
+			Ligne4=Ligne4-C35;
+		}
+		else{
+			C35=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C36!=C28 && C36!=C29 && C36!=C30 && C36!=C31 && C36!=C32 && C36!=C33 && C36!=C34 && C36!=C35){
+			Ligne4=Ligne4-C36;
+		}
+		else{
+			C36=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Ligne4!=0);
+
+do{
+		    Ligne5 = 45;
+			Ligne5=Ligne5-C37;
+
+		if(C38!=C37){
+			Ligne5=Ligne5-C38;
+		}
+		else{
+			C38=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C39!=C37 && C39!=C38){
+			Ligne5=Ligne5-C39;
+		}
+		else{
+		    C39=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C40!=C37 && C40!=C38 && C40!=C39){
+			Ligne5=Ligne5-C40;
+		}
+		else{
+			C40=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C41!=C37 && C41!=C38 && C41!=C39 && C41!=C40){
+			Ligne5=Ligne5-C41;
+		}
+		else{
+			C41=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C42!=C37 && C42!=C38 && C42!=C39 && C42!=C40 && C42!=C41){
+			Ligne5=Ligne5-C42;
+		}
+		else{
+			C42=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C43!=C37 && C43!=C38 && C43!=C39 && C43!=C40 && C43!=C41 && C43!=C42){
+			Ligne5=Ligne5-C43;
+		}
+		else{
+			C43=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C44!=C37 && C44!=C38 && C44!=C39 && C44!=C40 && C44!=C41 && C44!=C42 && C44!=C43){
+			Ligne5=Ligne5-C44;
+		}
+		else{
+			C44=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C45!=C37 && C45!=C38 && C45!=C39 && C45!=C40 && C45!=C41 && C45!=C42 && C45!=C43 && C45!=C44){
+			Ligne5=Ligne5-C45;
+		}
+		else{
+			C45=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Ligne5!=0);
+
+do{
+		    Ligne6 = 45;
+			Ligne6=Ligne6-C46;
+
+		if(C47!=C46){
+			Ligne6=Ligne6-C47;
+		}
+		else{
+			C47=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C48!=C46 && C48!=C47){
+			Ligne6=Ligne6-C48;
+		}
+		else{
+		    C48=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C49!=C46 && C49!=C47 && C49!=C48){
+			Ligne6=Ligne6-C49;
+		}
+		else{
+			C49=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C50!=C46 && C50!=C47 && C50!=C48 && C50!=C49){
+			Ligne6=Ligne6-C50;
+		}
+		else{
+			C50=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C51!=C46 && C51!=C47 && C51!=C48 && C51!=C49 && C51!=C50){
+			Ligne6=Ligne6-C51;
+		}
+		else{
+			C51=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C52!=C46 && C52!=C47 && C52!=C48 && C52!=C49 && C52!=C50 && C52!=C51){
+			Ligne6=Ligne6-C52;
+		}
+		else{
+			C52=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C53!=C46 && C53!=C47 && C53!=C48 && C53!=C49 && C53!=C50 && C53!=C51 && C53!=C52){
+			Ligne6=Ligne6-C53;
+		}
+		else{
+			C53=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C54!=C46 && C54!=C47 && C54!=C48 && C54!=C49 && C54!=C50 && C54!=C51 && C54!=C52 && C54!=C53){
+			Ligne6=Ligne6-C54;
+		}
+		else{
+			C54=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Ligne6!=0);
+
+do{
+		    Ligne7 = 45;
+			Ligne7=Ligne7-C55;
+
+		if(C56!=C55){
+			Ligne7=Ligne7-C56;
+		}
+		else{
+			C56=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C57!=C55 && C57!=C56){
+			Ligne7=Ligne7-C57;
+		}
+		else{
+		    C57=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C58!=C55 && C58!=C56 && C58!=C57){
+			Ligne7=Ligne7-C58;
+		}
+		else{
+			C58=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C59!=C55 && C59!=C56 && C59!=C57 && C59!=C58){
+			Ligne7=Ligne7-C59;
+		}
+		else{
+			C59=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C60!=C55 && C60!=C56 && C60!=C57 && C60!=C58 && C60!=C59){
+			Ligne7=Ligne7-C60;
+		}
+		else{
+			C60=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C61!=C55 && C61!=C56 && C61!=C57 && C61!=C58 && C61!=C59 && C61!=C60){
+			Ligne7=Ligne7-C61;
+		}
+		else{
+			C61=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C62!=C55 && C62!=C56 && C62!=C57 && C62!=C58 && C62!=C59 && C62!=C60 && C62!=C61){
+			Ligne7=Ligne7-C62;
+		}
+		else{
+			C62=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C63!=C55 && C63!=C56 && C63!=C57 && C63!=C58 && C63!=C59 && C63!=C60 && C63!=C61 && C63!=C62){
+			Ligne7=Ligne7-C63;
+		}
+		else{
+			C63=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Ligne7!=0);
+
+do{
+		    Ligne8 = 45;
+			Ligne8=Ligne8-C64;
+
+		if(C65!=C64){
+			Ligne8=Ligne8-C65;
+		}
+		else{
+			C65=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C66!=C64 && C66!=C65){
+			Ligne8=Ligne8-C66;
+		}
+		else{
+		    C66=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C67!=C64 && C67!=C65 && C67!=C66){
+			Ligne8=Ligne8-C67;
+		}
+		else{
+			C67=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C68!=C64 && C68!=C65 && C68!=C66 && C68!=C67){
+			Ligne8=Ligne8-C68;
+		}
+		else{
+			C68=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C69!=C64 && C69!=C65 && C69!=C66 && C69!=C67 && C69!=C68){
+			Ligne8=Ligne8-C69;
+		}
+		else{
+			C69=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C70!=C64 && C70!=C65 && C70!=C66 && C70!=C67 && C70!=C68 && C70!=C69){
+			Ligne8=Ligne8-C70;
+		}
+		else{
+			C70=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C71!=C64 && C71!=C65 && C71!=C66 && C71!=C67 && C71!=C68 && C71!=C69 && C71!=C70){
+			Ligne8=Ligne8-C71;
+		}
+		else{
+			C71=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C72!=C64 && C72!=C65 && C72!=C66 && C72!=C67 && C72!=C68 && C72!=C69 && C72!=C70 && C72!=C71){
+			Ligne8=Ligne8-C72;
+		}
+		else{
+			C72=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Ligne8!=0);
+
+do{
+		    Ligne9 = 45;
+			Ligne9=Ligne9-C73;
+
+		if(C74!=C73){
+			Ligne9=Ligne9-C74;
+		}
+		else{
+			C74=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C75!=C73 && C75!=C74){
+			Ligne9=Ligne9-C75;
+		}
+		else{
+		    C75=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C76!=C73 && C76!=C74 && C76!=C75){
+			Ligne9=Ligne9-C76;
+		}
+		else{
+			C76=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C77!=C73 && C77!=C74 && C77!=C75 && C77!=C76){
+			Ligne9=Ligne9-C77;
+		}
+		else{
+			C77=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C78!=C73 && C78!=C74 && C78!=C75 && C78!=C76 && C78!=C77){
+			Ligne9=Ligne9-C78;
+		}
+		else{
+			C78=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C79!=C73 && C79!=C74 && C79!=C75 && C79!=C76 && C79!=C77 && C79!=C78){
+			Ligne9=Ligne9-C79;
+		}
+		else{
+			C79=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C80!=C73 && C80!=C74 && C80!=C75 && C80!=C76 && C80!=C77 && C80!=C78 && C80!=C79){
+			Ligne9=Ligne9-C80;
+		}
+		else{
+			C80=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C81!=C73 && C81!=C74 && C81!=C75 && C81!=C76 && C81!=C77 && C81!=C78 && C81!=C79 && C81!=C80){
+			Ligne9=Ligne9-C81;
+		}
+		else{
+			C81=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Ligne9!=0);
+
+do{
+		    Carre1 = 45;
+			Carre1=Carre1-C1;
+
+		if(C2!=C1){
+			Carre1=Carre1-C2;
+		}
+		else{
+			C2=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C3!=C1 && C3!=C2){
+			Carre1=Carre1-C3;
+		}
+		else{
+			C3=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C10!=C1 && C10!=C2 && C10!=C3){
+			Carre1=Carre1-C10;
+		}
+		else{
+			C10=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C11!=C1 && C11!=C2 && C11!=C3 && C11!=C10){
+			Carre1=Carre1-C11;
+		}
+		else{
+			C11=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C12!=C1 && C12!=C2 && C12!=C3 && C12!=C10 && C12!=C11){
+			Carre1=Carre1-C12;
+		}
+		else{
+			C12=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C19!=C1 && C19!=C2 && C19!=C3 && C19!=C10 && C19!=C11 && C19!=C12){
+			Carre1=Carre1-C19;
+		}
+		else{
+			C19=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C20!=C1 && C20!=C2 && C20!=C3 && C20!=C10 && C20!=C11 && C20!=C12 && C20!=C19){
+			Carre1=Carre1-C20;
+		}
+		else{
+			C20=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C21!=C1 && C21!=C2 && C21!=C3 && C21!=C10 && C21!=C11 && C21!=C12 && C21!=C19 && C21!=C20){
+			Carre1=Carre1-C21;
+		}
+		else{
+			C21=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Carre1!=0);
+
+do{
+		    Carre2 = 45;
+			Carre2=Carre2-C4;
+
+		if(C5!=C4){
+			Carre2=Carre2-C5;
+		}
+		else{
+			C5=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C6!=C4 && C6!=C5){
+			Carre2=Carre2-C6;
+		}
+		else{
+			C6=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C13!=C4 && C13!=C5 && C13!=C6){
+			Carre2=Carre2-C13;
+		}
+		else{
+			C13=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C14!=C4 && C14!=C5 && C14!=C6 && C14!=C13){
+			Carre2=Carre2-C14;
+		}
+		else{
+			C14=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C15!=C4 && C15!=C5 && C15!=C6 && C15!=C13 && C15!=C14){
+			Carre2=Carre2-C15;
+		}
+		else{
+			C15=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C22!=C4 && C22!=C5 && C22!=C6 && C22!=C13 && C22!=C14 && C22!=C15){
+			Carre2=Carre2-C22;
+		}
+		else{
+			C22=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C23!=C4 && C23!=C5 && C23!=C6 && C23!=C13 && C23!=C14 && C23!=C15 && C23!=C22){
+			Carre2=Carre2-C23;
+		}
+		else{
+			C23=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C24!=C4 && C24!=C5 && C24!=C6 && C24!=C13 && C24!=C14 && C24!=C15 && C24!=C22 && C24!=C23){
+			Carre2=Carre2-C24;
+		}
+		else{
+			C24=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Carre2!=0);
+
+do{
+		    Carre3 = 45;
+			Carre3=Carre3-C7;
+
+		if(C8!=C7){
+			Carre3=Carre3-C8;
+		}
+		else{
+			C8=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C9!=C7 && C9!=C8){
+			Carre3=Carre3-C9;
+		}
+		else{
+			C9=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C16!=C7 && C16!=C8 && C16!=C9){
+			Carre3=Carre3-C16;
+		}
+		else{
+			C16=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C17!=C7 && C17!=C8 && C17!=C9 && C17!=C16){
+			Carre3=Carre3-C17;
+		}
+		else{
+			C17=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C18!=C7 && C18!=C8 && C18!=C9 && C18!=C16 && C18!=C17){
+			Carre3=Carre3-C18;
+		}
+		else{
+			C18=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C25!=C7 && C25!=C8 && C25!=C9 && C25!=C16 && C25!=C17 && C25!=C18){
+			Carre3=Carre3-C25;
+		}
+		else{
+			C25=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C26!=C7 && C26!=C8 && C26!=C9 && C26!=C16 && C26!=C17 && C26!=C18 && C26!=C25){
+			Carre3=Carre3-C26;
+		}
+		else{
+			C26=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C27!=C7 && C27!=C8 && C27!=C9 && C27!=C16 && C27!=C17 && C27!=C18 && C27!=C25 && C27!=C26){
+			Carre3=Carre3-C27;
+		}
+		else{
+			C27=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Carre3!=0);
+
+do{
+		    Carre4 = 45;
+			Carre4=Carre4-C28;
+
+		if(C29!=C28){
+			Carre4=Carre4-C29;
+		}
+		else{
+			C29=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C30!=C28 && C30!=C29){
+			Carre4=Carre4-C30;
+		}
+		else{
+			C30=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C37!=C28 && C37!=C29 && C37!=C30){
+			Carre4=Carre4-C37;
+		}
+		else{
+			C37=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C38!=C28 && C38!=C29 && C38!=C30 && C38!=C37){
+			Carre4=Carre4-C38;
+		}
+		else{
+			C38=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C39!=C28 && C39!=C29 && C39!=C30 && C39!=C37 && C39!=C38){
+			Carre4=Carre4-C39;
+		}
+		else{
+			C39=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C46!=C28 && C46!=C29 && C46!=C30 && C46!=C37 && C46!=C38 && C46!=C39){
+			Carre4=Carre4-C46;
+		}
+		else{
+			C46=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C47!=C28 && C47!=C29 && C47!=C30 && C47!=C37 && C47!=C38 && C47!=C39 && C47!=C46){
+			Carre4=Carre4-C47;
+		}
+		else{
+			C47=Math.floor((9)*Math.random()+1);
+		}
+
+		if(C48!=C28 && C48!=C29 && C48!=C30 && C48!=C37 && C48!=C38 && C48!=C39 && C48!=C46 && C48!=C47){
+			Carre4=Carre4-C48;
+		}
+		else{
+			C48=Math.floor((9)*Math.random()+1);
+		}
+}
+while(Carre4!=0);
+
+	document.getElementById("Case1").value=C1;
+	document.getElementById("Case2").value=C2;
+	document.getElementById("Case3").value=C3;
+	document.getElementById("Case4").value=C4;
+	document.getElementById("Case5").value=C5;
+	document.getElementById("Case6").value=C6;
+	document.getElementById("Case7").value=C7;
+	document.getElementById("Case8").value=C8;
+	document.getElementById("Case9").value=C9;
+	document.getElementById("Case10").value=C10;
+	document.getElementById("Case11").value=C11;
+	document.getElementById("Case12").value=C12;
+	document.getElementById("Case13").value=C13;
+	document.getElementById("Case14").value=C14;
+	document.getElementById("Case15").value=C15;
+	document.getElementById("Case16").value=C16;
+	document.getElementById("Case17").value=C17;
+	document.getElementById("Case18").value=C18;
+	document.getElementById("Case19").value=C19;
+	document.getElementById("Case20").value=C20;
+	document.getElementById("Case21").value=C21;
+	document.getElementById("Case22").value=C22;
+	document.getElementById("Case23").value=C23;
+	document.getElementById("Case24").value=C24;
+	document.getElementById("Case25").value=C25;
+	document.getElementById("Case26").value=C26;
+	document.getElementById("Case27").value=C27;
+	document.getElementById("Case28").value=C28;
+	document.getElementById("Case29").value=C29;
+	document.getElementById("Case30").value=C30;
+	document.getElementById("Case31").value=C31;
+	document.getElementById("Case32").value=C32;
+	document.getElementById("Case33").value=C33;
+	document.getElementById("Case34").value=C34;
+	document.getElementById("Case35").value=C35;
+	document.getElementById("Case36").value=C36;
+	document.getElementById("Case37").value=C37;
+	document.getElementById("Case38").value=C38;
+	document.getElementById("Case39").value=C39;
+	document.getElementById("Case40").value=C40;
+	document.getElementById("Case41").value=C41;
+	document.getElementById("Case42").value=C42;
+	document.getElementById("Case43").value=C43;
+	document.getElementById("Case44").value=C44;
+	document.getElementById("Case45").value=C45;
+	document.getElementById("Case46").value=C46;
+	document.getElementById("Case47").value=C47;
+	document.getElementById("Case48").value=C48;
+	document.getElementById("Case49").value=C49;
+	document.getElementById("Case50").value=C50;
+	document.getElementById("Case51").value=C51;
+	document.getElementById("Case52").value=C52;
+	document.getElementById("Case53").value=C53;
+	document.getElementById("Case54").value=C54;
+	document.getElementById("Case55").value=C55;
+	document.getElementById("Case56").value=C56;
+	document.getElementById("Case57").value=C57;
+	document.getElementById("Case58").value=C58;
+	document.getElementById("Case59").value=C59;
+	document.getElementById("Case60").value=C60;
+	document.getElementById("Case61").value=C61;
+	document.getElementById("Case62").value=C62;
+	document.getElementById("Case63").value=C63;
+	document.getElementById("Case64").value=C64;
+	document.getElementById("Case65").value=C65;
+	document.getElementById("Case66").value=C66;
+	document.getElementById("Case67").value=C67;
+	document.getElementById("Case68").value=C68;
+	document.getElementById("Case69").value=C69;
+	document.getElementById("Case70").value=C70;
+	document.getElementById("Case71").value=C71;
+	document.getElementById("Case72").value=C72;
+	document.getElementById("Case73").value=C73;
+	document.getElementById("Case74").value=C74;
+	document.getElementById("Case75").value=C75;
+	document.getElementById("Case76").value=C76;
+	document.getElementById("Case77").value=C77;
+	document.getElementById("Case78").value=C78;
+	document.getElementById("Case79").value=C79;
+	document.getElementById("Case80").value=C80;
+	document.getElementById("Case81").value=C81;
+
+</script>
+<div class="copyright">
+© copyright Denis Gerber
+</div></div>
+</div></div>
+</div>
+</body>
+</html>
