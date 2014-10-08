@@ -1,0 +1,117 @@
+textarea{
+	max-height:70px;
+	max-width: 70px;
+	text-align: center;
+	resize:none;	
+
+	word-wrap : break-word; 
+	border-color: black;
+	border-radius: 20px;
+	border: solid 5px;
+	background-color: #FFFFFF;
+}
+.Table{
+margin-top:-15px;
+margin-left:90px;
+}
+.Body{
+	font-size: 22px;
+	background-color: #6495ED;
+}
+.text {
+	line-height: 50px;
+	text-align: center;
+	height:800px;
+	width:900px;
+	background-color: #FFFFFF;
+	border-style: solid;
+	border-color: #000;
+	border-width: 5px;
+	border-radius: 30px;
+	font-family: SimSun;
+	font-size: 50px;
+	box-shadow:0px 0px 0 rgb(255,50,0),
+	1px 1px 0 rgb(247,228,228),
+	2px 2px 0 rgb(238,219,219),
+	3px 3px 0 rgb(229,210,210),
+	4px 4px 0 rgb(221,202,202),
+	5px 5px 0 rgb(212,193,193),
+	6px 6px 0 rgb(203,184,184),
+	7px 7px 0 rgb(195,175,175),
+	8px 8px 0 rgb(167,167,167),
+	9px 9px 0 rgb(158,158,158), 
+	10px 10px 0 rgb(149,149,149),
+	11px 11px 10px rgba(0,0,0,0.6),
+	11px 11px 1px rgba(0,0,0,0.5),
+	0px 0px 10px rgba(0,0,0,.2);
+}
+.banniere{
+	height: 150px;
+	width: 900px;
+	background-color:#FFFFFF;
+	color:#FF0000;
+	font-size: 80px;
+	line-height: 2px;
+	border-style: solid;
+	border-color: #ffd700;
+	border-width: 10px;
+	border-radius: 50px;
+	font-family: SimSun, bold;
+	text-shadow: 1px 2px 0 rgba(0,0,0,0.4),
+             -1px -2px 0 rgba(255,255,255,1);
+	box-shadow:0px 0px 0 rgb(255,50,0),
+	1px 1px 0 rgb(247,228,228),
+	2px 2px 0 rgb(238,219,219),
+	3px 3px 0 rgb(229,210,210),
+	4px 4px 0 rgb(221,202,202),
+	5px 5px 0 rgb(212,193,193),
+	6px 6px 0 rgb(203,184,184),
+	7px 7px 0 rgb(195,175,175),
+	8px 8px 0 rgb(167,167,167),
+	9px 9px 0 rgb(158,158,158), 
+	10px 10px 0 rgb(149,149,149),
+	11px 11px 10px rgba(0,0,0,0.6),
+	11px 11px 1px rgba(0,0,0,0.5),
+	0px 0px 10px rgba(0,0,0,.2);
+}
+.banniere span{
+	font-size: 120px;
+	line-height: 90px;
+	margin-right: 20px;
+	margin-left: 20px;
+
+}
+.banniere h1{
+	text-align: center;
+	font-family: SimSun, bold;
+		font-size: 100px;
+	line-height: 90px;
+	text-shadow: 1px 2px 0 rgba(0,0,0,0.4),
+             -1px -2px 0 rgba(255,255,255,1);
+	box-shadow:0px 0px 0 rgb(255,50,0),
+}
+
+.copyright{
+font-family:  SimSun;
+margin-top: -70px;
+color: #000000;
+font-size: 15px;
+}
+.grand_trait_brun{
+	height:2px;
+	width:10px;
+	border-radius:50px; 
+	background-color:#CD853F;
+}
+.grand_trait_brun2{
+	height:10px;
+	width:210px;
+	border-radius:50px; 
+	background-color:#CD853F;
+}
+.point_noir{
+	height:10px;
+	width:10px;
+	border-radius:50px; 
+	background-color:#000000;
+}
